@@ -14,14 +14,17 @@ precedence = {
 
 
 def dec_to_bin(dec):
+    """Converts a decimal number to its binary representation."""
     return bin(dec).replace("0b", "")
 
 
 def bin_to_dec(binary):
+    """Converts a binary number to its decimal representation."""
     return int(str(binary), 2)
 
 
 def apply_operation(conn, op, b, a=None, base_2=False):
+    """Applies the given operation and stores the result in the database."""
     if a is not None:
         result = apply_operation_without_db(op, b, a, base_2)
         store_calculation(conn, op, a, b, result)
@@ -32,6 +35,7 @@ def apply_operation(conn, op, b, a=None, base_2=False):
 
 
 def apply_operation_without_db(op, b, a=None, base_2=False):
+    """Applies the given operation without storing the result in the database."""
     result = None  # Add this line to initialize the result variable
 
     if base_2:
@@ -40,7 +44,7 @@ def apply_operation_without_db(op, b, a=None, base_2=False):
 
     if op == '+':
         result = a + b
-    elif op == '-':  # Change this line to use 'elif' instead of 'if'
+    elif op == '-':
         result = a - b
     elif op == '*':
         result = a * b
@@ -59,12 +63,13 @@ def apply_operation_without_db(op, b, a=None, base_2=False):
     return result
 
 
-
 def greater_precedence(op1, op2):
+    """Checks if the precedence of the first operator is greater than the second operator."""
     return precedence[op1] > precedence[op2]
 
 
 def evaluate_expression(conn, tokens, base_2=False):
+    """Evaluates the given expression tokens and returns the result."""
     values = []
     operators = []
 
@@ -104,10 +109,12 @@ def evaluate_expression(conn, tokens, base_2=False):
 
 
 def tokenize(expression):
+    """Tokenizes the given expression into a list of tokens."""
     tokens = re.findall(r"(\d+\.?\d*|\(|\[|\)|\]|\\|\^|\!|%|\*|/|\+|\-)", expression)
     return tokens
 
 
 def validate_expression(expression):
+    """Validates the given expression and returns True if it only contains allowed characters."""
     allowed_characters = re.compile(r"^[0-9\+\-\*/\^%!()\[\]\\.]+$")
     return allowed_characters.match(expression) is not None
