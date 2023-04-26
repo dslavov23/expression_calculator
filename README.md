@@ -21,14 +21,8 @@ Operands must be base 10 and the following characters are allowed:
 *, /, +, -, ^, !, %
 
 # Database
-Each operation performed by the calculator is stored in a SQLite database calculations.db. The database contains a single table calculations with the following columns:
+Each operation performed by the calculator is stored in a SQLite database calculator.db. The database contains a single table calculations.
 
-id Primary key auto-incrementing integer value
-operation The mathematical operation performed
-operand1 The first operand in the operation
-operand2 The second operand in the operation (if applicable)
-result The result of the operation
-timestamp The date and time the operation was performed
 
 # Descriptive Statistics
 The calculator provides descriptive statistics for the operations performed. The following statistics are provided:
