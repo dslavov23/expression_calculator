@@ -1,8 +1,9 @@
 # Expression Calculator
-This is a simple calculator that evaluates mathematical expressions up to 128 characters in length.
+This is a simple calculator that evaluates mathematical expressions in base 10 and base 2 up to 128 characters in length.
 
 # Usage
-To use the calculator, run the main.py file and enter the expression you would like to evaluate when prompted. The calculator will then output the result of the expression.
+To use the calculator, run the main.py file and enter 'b' to choose a base and evaluate your desired expression, 's' to see the statistics or 'q' to terminate the program.
+
 
 The calculator supports the following operations:
 
@@ -29,3 +30,4 @@ The calculator provides descriptive statistics for the operations performed. The
 
 Total number of times the calculator performed each operation (+, -, *, /, ^, !, %)
 Average number of operations performed per expression
+

@@ -32,29 +32,32 @@ def apply_operation(conn, op, b, a=None, base_2=False):
 
 
 def apply_operation_without_db(op, b, a=None, base_2=False):
+    result = None  # Add this line to initialize the result variable
+
     if base_2:
         a = bin_to_dec(a) if a is not None else None
         b = bin_to_dec(b)
 
     if op == '+':
         result = a + b
-    if op == '-':
+    elif op == '-':  # Change this line to use 'elif' instead of 'if'
         result = a - b
-    if op == '*':
+    elif op == '*':
         result = a * b
-    if op == '/':
+    elif op == '/':
         result = a / b
-    if op == '^':
+    elif op == '^':
         result = a ** b
-    if op == '%':
+    elif op == '%':
         result = (a * b) / 100
-    if op == '!':
+    elif op == '!':
         result = math.factorial(b)
 
     if base_2:
         result = dec_to_bin(result)
 
     return result
+
 
 
 def greater_precedence(op1, op2):
