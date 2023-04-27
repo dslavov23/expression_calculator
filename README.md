@@ -3,7 +3,7 @@ This is a simple calculator that evaluates mathematical expressions in base 10 a
 
 # Usage
 To use the calculator, run the main.py file and enter 'b' to choose a base and evaluate your desired expression, 's' to see the statistics or 'q' to terminate the program.
-
+By default, the calculator will start in base 10.
 
 The calculator supports the following operations:
 
